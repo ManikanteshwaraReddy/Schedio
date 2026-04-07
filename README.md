@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/vsreddyh/schedio">
-    <img src="https://github.com/vsreddyh/schedio/blob/main/frontend/public/favicon.png?raw=true" alt="Logo" width="80" height="80">
+  <a href="https://github.com/ManikanteshwaraReddy/Schedio">
+    <img src="https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/favicon.png?raw=true" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Schedio</h3>
@@ -8,19 +8,19 @@
   <p align="center">
     A trustworthy platform connecting recruiters and students. 
     <br />
-    <a href="https://github.com/vsreddyh/schedio/issues/new?labels=bug">Report Bug</a>
+    <a href="https://github.com/ManikanteshwaraReddy/Schedio/issues/new?labels=bug">Report Bug</a>
     ·
-    <a href="https://github.com/vsreddyh/schedio/issues/new?labels=enhancement">Request Feature</a>
+    <a href="https://github.com/ManikanteshwaraReddy/Schedio/issues/new?labels=enhancement">Request Feature</a>
     ·
     <a href="https://schedio-coral.vercel.app">View Website</a>
   </p>
 
   <p align="center">
-    <img src="https://img.shields.io/github/issues/vsreddyh/schedio?color=blue" alt="Issues" />
-    <img src="https://img.shields.io/github/forks/vsreddyh/schedio" alt="Forks" />
-    <img src="https://img.shields.io/github/stars/vsreddyh/schedio" alt="Stars" />
-    <img src="https://img.shields.io/github/license/vsreddyh/schedio" alt="License" />
-    <img src="https://img.shields.io/github/deployments/vsreddyh/schedio/production?label=Vercel%20Deployment" alt="Vercel Deployment" />
+    <img src="https://img.shields.io/github/issues/ManikanteshwaraReddy/Schedio?color=blue" alt="Issues" />
+    <img src="https://img.shields.io/github/forks/ManikanteshwaraReddy/Schedio" alt="Forks" />
+    <img src="https://img.shields.io/github/stars/ManikanteshwaraReddy/Schedio" alt="Stars" />
+    <img src="https://img.shields.io/github/license/ManikanteshwaraReddy/Schedio" alt="License" />
+    <img src="https://img.shields.io/github/deployments/ManikanteshwaraReddy/Schedio/production?label=Vercel%20Deployment" alt="Vercel Deployment" />
   </p>
 </div>
 
@@ -56,7 +56,7 @@
 
 ## About The Project
 
-![Dashboard](https://github.com/vsreddyh/schedio/blob/main/frontend/public/Project_Photo.png?raw=true)
+![Dashboard](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/Project_Photo.png?raw=true)
 
 Schedio provides a platform for students/employees, colleges/organizations, and recruiters to collaborate. It simplifies sharing and understanding projects, offers advanced search and filtering tools, and enables recruiters to discover the right talent.
 
@@ -135,7 +135,7 @@ To run the project locally, follow these steps.
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/vsreddyh/schedio.git
+   git clone https://github.com/ManikanteshwaraReddy/Schedio.git
    ```
 
 2. Install dependencies:
@@ -166,7 +166,7 @@ To run the project locally, follow these steps.
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/vsreddyh/schedio.git
+   git clone https://github.com/ManikanteshwaraReddy/Schedio.git
    ```
 
 #### For Development
@@ -289,8 +289,8 @@ We welcome contributions of all kinds! Whether it's bug reports, feature suggest
 
 If you encounter bugs or have ideas for new features, please open an issue:
 
-- **Report Bugs**: [Create a Bug Report](https://github.com/vsreddyh/schedio/issues/new?labels=bug)
-- **Request Features**: [Suggest a Feature](https://github.com/vsreddyh/schedio/issues/new?labels=enhancement)
+- **Report Bugs**: [Create a Bug Report](https://github.com/ManikanteshwaraReddy/Schedio/issues/new?labels=bug)
+- **Request Features**: [Suggest a Feature](https://github.com/ManikanteshwaraReddy/Schedio/issues/new?labels=enhancement)
 
 Make sure to:
 
@@ -307,31 +307,31 @@ Your effort makes a huge difference! Every bug report, feature request, and pull
 
 ## Screenshots
 
-![](https://github.com/vsreddyh/schedio/blob/main/frontend/public/Project.png?raw=true)<p style="text-align: center;">Project Page</p>
+![](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/Project.png?raw=true)<p style="text-align: center;">Project Page</p>
 
-![](https://github.com/vsreddyh/schedio/blob/main/frontend/public/Explorer.png?raw=true)<p style="text-align: center;">Opening a File in Project's Code files</p>
+![](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/Explorer.png?raw=true)<p style="text-align: center;">Opening a File in Project's Code files</p>
 
-![](https://github.com/vsreddyh/schedio/blob/main/frontend/public/Gemini.png?raw=true)<p style="text-align: center;">Using Gemini to explain code files</p>
+![](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/Gemini.png?raw=true)<p style="text-align: center;">Using Gemini to explain code files</p>
 
-![](https://github.com/vsreddyh/schedio/blob/main/frontend/public/Language%20Search.png?raw=true)<p style="text-align: center;">Suggestions for language filters</p>
+![](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/Language%20Search.png?raw=true)<p style="text-align: center;">Suggestions for language filters</p>
 
-![](https://github.com/vsreddyh/schedio/blob/main/frontend/public/LikedProjects.png?raw=true)<p style="text-align: center;">Liked Projects in T1 users page</p>
+![](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/LikedProjects.png?raw=true)<p style="text-align: center;">Liked Projects in T1 users page</p>
 
-![](https://github.com/vsreddyh/schedio/blob/main/frontend/public/My%20profile.png?raw=true)<p style="text-align: center;">T1 user Profile Page</p>
+![](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/My%20profile.png?raw=true)<p style="text-align: center;">T1 user Profile Page</p>
 
-![](https://github.com/vsreddyh/schedio/blob/main/frontend/public/Status.png?raw=true)<p style="text-align: center;">Log out option in T1 users</p>
+![](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/Status.png?raw=true)<p style="text-align: center;">Log out option in T1 users</p>
 
-![](https://github.com/vsreddyh/schedio/blob/main/frontend/public/college.png?raw=true)
+![](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/college.png?raw=true)
 
 <p style="text-align: center;">Organization HomePage</p>
 
-![](https://github.com/vsreddyh/schedio/blob/main/frontend/public/student_profile.png?raw=true)<p style="text-align: center;">Student Page viewed by T3,T2 users</p>
+![](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/student_profile.png?raw=true)<p style="text-align: center;">Student Page viewed by T3,T2 users</p>
 
-![](https://github.com/vsreddyh/schedio/blob/main/frontend/public/college_search.png?raw=true)
+![](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/college_search.png?raw=true)
 
 <p style="text-align: center;">Filtering by college in Recruiter page</p>
 
-![](https://github.com/vsreddyh/schedio/blob/main/frontend/public/Bookmark.png?raw=true)
+![](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/frontend/public/Bookmark.png?raw=true)
 
 <p style="text-align: center;">Bookmarks in recruiter page</p>
 
@@ -339,7 +339,7 @@ Your effort makes a huge difference! Every bug report, feature request, and pull
 
 ## License
 
-This project is licensed under the GNU Affero General Public License v3.0. See the [LICENSE](https://github.com/vsreddyh/schedio/blob/main/LICENSE) file for more details.
+This project is licensed under the GNU Affero General Public License v3.0. See the [LICENSE](https://github.com/ManikanteshwaraReddy/Schedio/blob/main/LICENSE) file for more details.
 
 ---
 
