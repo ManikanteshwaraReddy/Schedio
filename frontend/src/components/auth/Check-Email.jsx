@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "../layout/Header";
 
-export default function () {
+function CheckEmail() {
     const params = useParams();
     const token = params.mailid;
     return (
@@ -19,3 +19,5 @@ export default function () {
         </div>
     );
 }
+
+export default CheckEmail;

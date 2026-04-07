@@ -1,11 +1,7 @@
 import React from "react";
 // import "./Check-Email.css"
-import { useParams } from "react-router-dom";
 
-export default function () {
-
-    const params = useParams();
-    const token = params.mailid;
+function UploadSuccess() {
     return (
         <div>
 
@@ -21,3 +17,5 @@ export default function () {
     )
 
 }
+
+export default UploadSuccess;
