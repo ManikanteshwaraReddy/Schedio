@@ -69,7 +69,7 @@ export default function ProjectDisplay({
         {
             label: 'Python',
             image:
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png'
+                'https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg'
         },
         {
             label: 'Java',
@@ -89,7 +89,7 @@ export default function ProjectDisplay({
         {
             label: 'MERN',
             image:
-                'https://inzint.com/wp-content/uploads/2023/02/Features-of-Mern-stack-development-services-You-Should-Know-1.png'
+                'https://upload.wikimedia.org/wikipedia/commons/9/94/MERN-logo.png'
         }
     ];
 

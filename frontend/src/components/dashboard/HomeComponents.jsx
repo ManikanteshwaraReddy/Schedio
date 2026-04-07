@@ -312,7 +312,7 @@ export default function HomeComponents({ checkSession }) {
                         {[
                             { label: 'Home', action: () => handleOptionClick(0) },
                             {
-                                label: 'My project',
+                                label: 'My Profile',
                                 action: () => {
                                     handleOptionClick(1);
                                     handlestudentdetail();
