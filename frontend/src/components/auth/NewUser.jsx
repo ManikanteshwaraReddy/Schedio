@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../layout/Header';
 import Sider from '../layout/Sider';
 import axios from 'axios';
-import { Link, useNavigate, useLocation, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 export default function NewUser({ setUserData }) {
     const navigate = useNavigate();
@@ -31,7 +31,7 @@ export default function NewUser({ setUserData }) {
         if (errorMessage) {
             navigate(`/signup/${errorMessage}`);
         }
-    }, [errorMessage]);
+    }, [errorMessage, navigate]);
     const [formData, setFormData] = useState({
         username: '',
         password: '',

@@ -8,7 +8,7 @@ import ForgotPassword from "./components/auth/ForgotPassword";
 import NewUser from "./components/auth/NewUser";
 import NewPassword from "./components/auth/Newpassword";
 import CollegeLogin from "./components/auth/CollegeLogin";
-import NewPassword_email from "./components/auth/newpassword_email";
+import NewPasswordEmail from "./components/auth/newpassword_email";
 import StudentLogin from "./components/auth/StudentLogin";
 import CollegeDetails from "./components/college/College-details";
 import Category from "./components/auth/wru";
@@ -163,7 +163,7 @@ export default function App() {
             userData ? (
               <Navigate to="/" />
             ) : (
-              <NewPassword_email setUserData={setUserData} />
+              <NewPasswordEmail setUserData={setUserData} />
             )
           }
         />

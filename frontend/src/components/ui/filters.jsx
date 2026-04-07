@@ -34,14 +34,14 @@ export default function Filters({ sendDataToParent }) {
         if (inputdata === '') {
             setFormData({
                 ...formData,
-                ['college_name']: 'Any',
+                college_name: 'Any',
             });
         }
     };
     const handleSuggestionClick = (selectedSuggestion) => {
         setFormData({
             ...formData,
-            ['college_name']: selectedSuggestion,
+            college_name: selectedSuggestion,
         });
         setTerm(selectedSuggestion);
         setSuggestions([]);
@@ -50,7 +50,7 @@ export default function Filters({ sendDataToParent }) {
 
     useEffect(() => {
         sendDataToParent(formData);
-    }, [formData]);
+    }, [formData, sendDataToParent]);
 
     const handleToggle = () => {
         setFormData({

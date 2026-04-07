@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../layout/Header';
 import Sider from '../layout/Sider';
 import axios from 'axios';
-import { Link, useNavigate, useLocation, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 export default function NewPassword_email({ setUserData }) {
     const year = new Date().getFullYear();
@@ -35,7 +35,7 @@ export default function NewPassword_email({ setUserData }) {
         if (errorMessage) {
             navigate(`/college-signup/${errorMessage}`);
         }
-    }, [errorMessage]);
+    }, [errorMessage, navigate]);
     const [formData, setFormData] = useState({
         password: '',
         cpassword: '',

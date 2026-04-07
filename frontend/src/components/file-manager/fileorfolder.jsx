@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import DisplayFolders from './displayfolder';
-import DisplayFile from './displayfiles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolder, faFileCode, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -34,7 +33,7 @@ const FileOrFolder = ({ fileName, path, name, contents, fileContents, setcde, op
     } else if (!isFolder(contents) && openforpath === `${path ? path + '/' : ''}${name}`) {
       setIsOpen(true);
     }
-  }, [openforpath, path, name]);
+  }, [openforpath, path, name, contents]);
 
   const isActive = !isFolder(contents) && openforpath === `${path ? path + '/' : ''}${name}`;
 

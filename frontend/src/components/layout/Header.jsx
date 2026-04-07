@@ -1,6 +1,4 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faProductHunt } from '@fortawesome/free-brands-svg-icons';
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
@@ -20,7 +18,7 @@ export default function Header() {
                     <div className="logo20">
                         {/* <FontAwesomeIcon icon={faProductHunt} style={{color: "#0db1f8",}} /> */}
                         {/* <img src='../Plogo.png' style={{ width: '35px', height: 'auto', paddingTop: '0px' }}/> */}
-                        <img src={process.env.PUBLIC_URL + '/Plogo.png'} style={{ width: '35px', height: 'auto', paddingTop: '0px' }} onClick={handleLogoClick} />
+                        <img src={process.env.PUBLIC_URL + '/Plogo.png'} alt='Schedio logo' style={{ width: '35px', height: 'auto', paddingTop: '0px' }} onClick={handleLogoClick} />
 
                     </div>
                     <div className="title20" onClick={handleTitleClick} >

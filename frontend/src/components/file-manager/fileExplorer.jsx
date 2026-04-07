@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import FileOrFolder from './fileorfolder';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { solarizedlight, atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useParams, useNavigate } from 'react-router-dom';
 import Loading from '../ui/Loading';
 import ThemeToggle from '../ui/ThemeToggle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faProjectDiagram, faCode, faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faCode, faLightbulb } from '@fortawesome/free-solid-svg-icons';
 
 const FileExplorer = () => {
     const [sider, setsider] = useState(true);

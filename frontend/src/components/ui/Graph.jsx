@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import Chart from 'chart.js/auto';
 import axios from 'axios';
 import NothingHere from './nothinghere';
@@ -18,11 +18,7 @@ const Graph = ({
         document.documentElement.classList.contains('dark')
     );
 
-    useEffect(() => {
-        getproj();
-    }, [receivedData]);
-
-    const getproj = async () => {
+    const getproj = useCallback(async () => {
         try {
             const response = await axios.post(
                 `${process.env.REACT_APP_BACKEND_URL}/en/collegeprojectsdisplay`,
@@ -34,7 +30,11 @@ const Graph = ({
         } catch (error) {
             console.error('Error fetching projects:', error);
         }
-    };
+    }, [receivedData]);
+
+    useEffect(() => {
+        getproj();
+    }, [getproj]);
     useEffect(() => {
         const getNoofprojects = async (req, res) => {
             const response = await axios.get(

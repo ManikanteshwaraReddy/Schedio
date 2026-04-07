@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload, faShareNodes, faXmark, faUserGraduate, faSchool, faQuoteLeft, faStar, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faShareNodes, faXmark, faSchool, faQuoteLeft, faStar, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import NothingHere from '../ui/nothinghere';
 import ProjectCard from '../portfolio/ProjectCard';
 

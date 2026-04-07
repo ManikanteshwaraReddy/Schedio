@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { GoLink } from 'react-icons/go';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookmark as faBookmarkSolid, faDownload, faShareNodes, faXmark, faUserGraduate, faSchool, faQuoteLeft, faStar, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark as faBookmarkSolid, faDownload, faShareNodes, faXmark, faSchool, faQuoteLeft, faStar, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as faBookmarkRegular } from '@fortawesome/free-regular-svg-icons';
 import NothingHere from '../ui/nothinghere';
 import ProjectCard from '../portfolio/ProjectCard';

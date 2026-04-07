@@ -11,17 +11,14 @@ export default function ProjectUploadForm() {
   const [video, setVideo] = useState(null);
   const [file, setFile] = useState(null);
   const [profilePhoto, setProfilePhoto] = useState(null);
-  const [photoname, setPhotoName] = useState("");
+  const [photoname] = useState("");
   const [videoname, setVideoName] = useState("");
   const [filename, setFileName] = useState("");
   const [pphotoname, setProfilePhotoName] = useState("");
-  const [totalSize, setTotalSize] = useState(0);
   const [fileSize, setFileSize] = useState(0);
   const [videoSize, setVideoSize] = useState(0);
   const [profilePhotoSize, setProfilePhotoSize] = useState(0);
   const [percent, setPercent] = useState(0);
-  const FilterData = useCallback((data) => { }, []);
-
   const CategoryData = useCallback((data) => { }, []);
 
   const handleSubmit = (event) => {
@@ -241,7 +238,7 @@ export default function ProjectUploadForm() {
       } else if (pphotoname.length === 0) {
         alert("profile photo required");
       } else {
-        const response = await axios
+        await axios
           .post(`${process.env.REACT_APP_BACKEND_URL}/en/uploadDetails`, {
             videoname: videoname,
             photoname: photoname,

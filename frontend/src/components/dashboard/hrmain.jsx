@@ -25,7 +25,7 @@ function HRMAIN({ checkSession }) {
         sort_by: 'Upload Date',
         order: false,
     });
-    const [searchData, setSearchData] = useState({
+    const [, setSearchData] = useState({
         type: 'Project Search',
         search: '',
     });
@@ -60,10 +60,10 @@ function HRMAIN({ checkSession }) {
         });
     };
 
-    const CategoryData = useCallback((data) => {
+    const CategoryData = (data) => {
         updatesearchData(data);
         setCurrentPage(1);
-    }, []);
+    };
 
     const updatesearchData = (data) => {
         if (data.search !== '') {
@@ -230,7 +230,7 @@ function HRMAIN({ checkSession }) {
 
     const deletesession = async () => {
         try {
-            const response = await axios.post(
+            await axios.post(
                 `${process.env.REACT_APP_BACKEND_URL}/en/deletesession`
             );
             await checkSession();
@@ -240,16 +240,18 @@ function HRMAIN({ checkSession }) {
     };
 
     useEffect(() => {
-        if (display == 2) {
+        if (display === 2) {
             console.log('fetching dataaa');
             fetchData();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [receivedData, currentPage]);
 
     useEffect(() => {
         if (projid) {
             fetchData();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [projid]);
 
     useEffect(() => {

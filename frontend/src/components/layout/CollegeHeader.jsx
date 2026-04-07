@@ -11,7 +11,7 @@ export default function CollegeHeader({
   handlecollegedetail,
 }) {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
+  const [formData] = useState({
     category: "Any",
     search: "",
   });

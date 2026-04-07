@@ -7,7 +7,7 @@ export default function NothingHere () {
                 Nothing Here
             </div>
             <div>
-                <img src="../notfound.gif"></img>
+                <img src="../notfound.gif" alt="Nothing here" />
             </div>
         </div>
     )

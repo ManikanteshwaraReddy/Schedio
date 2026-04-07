@@ -68,7 +68,7 @@ const CollegeMain = ({ checkSession }) => {
     };
     const deletesession = async () => {
         try {
-            const response = await axios.post(
+            await axios.post(
                 `${process.env.REACT_APP_BACKEND_URL}/en/deletesession`
             );
             await checkSession();
@@ -163,7 +163,7 @@ const CollegeMain = ({ checkSession }) => {
                 );
                 if (response.data === 1) {
                     handleclick(projid);
-                } else if (response.data == 2) {
+                } else if (response.data === 2) {
                     handlestuclick(projid);
                 } else {
                     navigate('clgmain');
@@ -183,6 +183,7 @@ const CollegeMain = ({ checkSession }) => {
     };
     useEffect(() => {
         fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [projid]);
     console.log(display, stack);
     return (

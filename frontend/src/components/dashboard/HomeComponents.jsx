@@ -4,14 +4,12 @@ import { faSearch, faUser, faBars } from '@fortawesome/free-solid-svg-icons';
 import HomePage from '../pages/HomePage';
 import StudentProfile from '../student/StudentProfile';
 import ProjectDisplay from '../portfolio/ProjectDisplay';
-import { Input } from '@mui/material';
 import DomainClick from '../ui/DomainClick';
 import { useNavigate, useParams } from 'react-router-dom';
 import ThemeToggle from '../ui/ThemeToggle';
 import axios from 'axios';
 import StudentProjectProfile from '../portfolio/studentProjectPortfolio';
 // import { MdOutlineHome } from "react-icons/md";
-import ProjectCard from '../portfolio/ProjectCard';
 export default function HomeComponents({ checkSession }) {
     const [isSiderVisible, setIsSiderVisible] = useState(false);
     const [studentproj, setStudentproj] = useState([]);
@@ -28,10 +26,8 @@ export default function HomeComponents({ checkSession }) {
     };
 
     const [display, setDisplay] = useState(0);
-    const [term, setTerm] = useState('');
     const [searchterm, setSearchterm] = useState('');
     const [sugesstions, setSugesstions] = useState([]);
-    const [skillprj, setSkillprj] = useState('');
     let { projid } = useParams();
     const [sendDataToStudent, setSendDataToStudent] = useState(null);
     const [prevdisplay, setPrevdisplay] = useState(0);
@@ -45,7 +41,6 @@ export default function HomeComponents({ checkSession }) {
     };
     const handlesearchClick = async (inputData) => {
         if (inputData !== '') {
-            setTerm(inputData);
             try {
                 const response = await axios.get(
                     `${process.env.REACT_APP_BACKEND_URL}/en/getsearchbyclick?term=${inputData}`
@@ -60,7 +55,6 @@ export default function HomeComponents({ checkSession }) {
         }
     };
     const handleDomainClick = async (inputData) => {
-        setTerm(inputData);
         try {
             const response = await axios.get(
                 `${process.env.REACT_APP_BACKEND_URL}/en/getdomainbyclick?term=${inputData}`
@@ -131,7 +125,7 @@ export default function HomeComponents({ checkSession }) {
     };
     const deletesession = async () => {
         try {
-            const response = await axios.post(
+            await axios.post(
                 `${process.env.REACT_APP_BACKEND_URL}/en/deletesession`
             );
             await checkSession();
@@ -162,7 +156,6 @@ export default function HomeComponents({ checkSession }) {
         }
     };
     const handleskillprj = async (skillname) => {
-        setSkillprj(skillname);
         try {
             const response = await axios.get(
                 `${process.env.REACT_APP_BACKEND_URL}/en/getskillprj?term=${skillname}`
@@ -205,6 +198,7 @@ export default function HomeComponents({ checkSession }) {
             console.log('got itttt');
             handleprojectprofile(projid);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [projid]);
 
     useEffect(() => {
