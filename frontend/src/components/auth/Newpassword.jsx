@@ -5,7 +5,7 @@ import Sider from '../layout/Sider';
 import axios from 'axios';
 import { Link, useNavigate, useLocation, useParams } from 'react-router-dom';
 
-export default function Newpasword() {
+export default function NewPassword() {
     const year = new Date().getFullYear();
     console.log('alalalalaa');
     const navigate = useNavigate();

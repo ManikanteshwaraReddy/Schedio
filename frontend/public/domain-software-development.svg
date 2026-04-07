@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Software development illustration</title>
+  <desc id="desc">Development dashboard with terminal window, code blocks, and workflow lanes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="50%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1225"/>
+      <stop offset="100%" stop-color="#111b36"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="210" cy="700" r="230" fill="#14b8a6" opacity="0.2"/>
+  <circle cx="1060" cy="120" r="180" fill="#2dd4bf" opacity="0.15"/>
+
+  <rect x="130" y="110" width="940" height="580" rx="28" fill="url(#panel)"/>
+  <rect x="130" y="110" width="940" height="72" rx="28" fill="#1f2d57"/>
+  <circle cx="176" cy="146" r="10" fill="#fb7185"/>
+  <circle cx="210" cy="146" r="10" fill="#fbbf24"/>
+  <circle cx="244" cy="146" r="10" fill="#34d399"/>
+
+  <rect x="170" y="220" width="400" height="420" rx="20" fill="#0b1225"/>
+  <rect x="610" y="220" width="420" height="130" rx="20" fill="#0b1225"/>
+  <rect x="610" y="370" width="420" height="120" rx="20" fill="#0b1225"/>
+  <rect x="610" y="510" width="420" height="130" rx="20" fill="#0b1225"/>
+
+  <text x="195" y="270" fill="#5eead4" font-family="Consolas, monospace" font-size="30">&gt; npm run build</text>
+  <text x="195" y="315" fill="#93c5fd" font-family="Consolas, monospace" font-size="26">Compiling modules...</text>
+  <text x="195" y="360" fill="#c4b5fd" font-family="Consolas, monospace" font-size="26">Tests: 42 passed</text>
+
+  <rect x="642" y="254" width="140" height="18" rx="9" fill="#14b8a6"/>
+  <rect x="642" y="285" width="300" height="14" rx="7" fill="#5eead4" opacity="0.45"/>
+
+  <rect x="642" y="404" width="160" height="18" rx="9" fill="#22d3ee"/>
+  <rect x="642" y="435" width="280" height="14" rx="7" fill="#93c5fd" opacity="0.45"/>
+
+  <rect x="642" y="544" width="170" height="18" rx="9" fill="#34d399"/>
+  <rect x="642" y="575" width="240" height="14" rx="7" fill="#a7f3d0" opacity="0.45"/>
+</svg>

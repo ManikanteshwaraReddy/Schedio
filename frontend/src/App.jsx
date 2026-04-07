@@ -6,9 +6,9 @@ import SignIn from "./components/auth/SignIn";
 import CheckEmail from "./components/auth/Check-Email";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import NewUser from "./components/auth/NewUser";
-import Newpasword from "./components/auth/Newpassword";
+import NewPassword from "./components/auth/Newpassword";
 import CollegeLogin from "./components/auth/CollegeLogin";
-import Newpasword_email from "./components/auth/newpassword_email";
+import NewPassword_email from "./components/auth/newpassword_email";
 import StudentLogin from "./components/auth/StudentLogin";
 import CollegeDetails from "./components/college/College-details";
 import Category from "./components/auth/wru";
@@ -146,7 +146,7 @@ export default function App() {
           element={<ForgotPassword />}
         />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/set-password/np/:token" element={<Newpasword />} />
+        <Route path="/set-password/np/:token" element={<NewPassword />} />
         <Route
           path="/set-password/nu/:token"
           element={
@@ -163,7 +163,7 @@ export default function App() {
             userData ? (
               <Navigate to="/" />
             ) : (
-              <Newpasword_email setUserData={setUserData} />
+              <NewPassword_email setUserData={setUserData} />
             )
           }
         />

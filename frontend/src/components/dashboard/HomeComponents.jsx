@@ -321,7 +321,7 @@ export default function HomeComponents({ checkSession }) {
                             },
                             { label: 'Explore', action: () => handleOptionClick(2) },
                             { label: 'Liked Projects', action: handlelikeClick },
-                            { label: 'About us', action: () => handleOptionClick(5) }
+                            // { label: 'About us', action: () => handleOptionClick(5) }
                         ].map((item) => (
                             <button
                                 key={item.label}

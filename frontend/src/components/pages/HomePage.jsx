@@ -28,38 +28,32 @@ export default function HomePage({
         {
             label: 'Healthcare',
             value: 'Healthcare',
-            image:
-                'https://www.national.edu/wp-content/uploads/2021/11/Nov_4_iStock-1127069581-scaled.jpeg'
+            image: '/domain-healthcare.svg'
         },
         {
             label: 'Artificial Intelligence',
             value: 'Artificial Intelligence and Robotics',
-            image:
-                'https://assets-global.website-files.com/61845f7929f5aa517ebab941/6440f9477c2a321f0dd6ab61_How%20Artificial%20Intelligence%20(AI)%20Is%20Used%20In%20Biometrics.jpg'
+            image: '/domain-artificial-intelligence.svg'
         },
         {
             label: 'Web Development',
             value: 'Web development',
-            image:
-                'https://sklc-tinymce-2021.s3.amazonaws.com/comp/2023/04/full-stack%20web%20development_1681290664.png'
+            image: '/domain-web-development.svg'
         },
         {
             label: 'Software Development',
             value: 'Software development',
-            image:
-                'https://blog.planview.com/wp-content/uploads/2020/01/Top-6-Software-Development-Methodologies.jpg'
+            image: '/domain-software-development.svg'
         },
         {
             label: 'E-Commerce',
             value: 'E-Commerce and Marketplace development',
-            image:
-                'https://product.hstatic.net/200000388585/product/khoa-ecommerce-leader_499927079ba847f1b0e4f8ec44fa3d90_1024x1024.jpg'
+            image: '/domain-ecommerce.svg'
         },
         {
             label: 'Cyber Security',
             value: 'Cyber Security',
-            image:
-                'https://www.ctemag.com/sites/default/files/page_images/blockchain-tech-manufacturing.jpg'
+            image: '/domain-cyber-security.svg'
         }
     ];
 
