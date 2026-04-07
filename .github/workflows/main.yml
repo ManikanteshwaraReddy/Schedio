@@ -35,14 +35,30 @@ jobs:
           REACT_APP_BACKEND_URL: ${{ secrets.REACT_APP_BACKEND_URL }}
         run: npm run build
 
+      - name: Detect build output dir
+        id: outdir
+        run: |
+          if [ -f frontend/build/index.html ]; then
+            echo "dir=build" >> "$GITHUB_OUTPUT"
+          elif [ -f frontend/dist/index.html ]; then
+            echo "dir=dist" >> "$GITHUB_OUTPUT"
+          else
+            echo "No build output found in frontend/build or frontend/dist"
+            ls -la frontend
+            exit 1
+          fi
+
+      - name: Show selected output directory
+        run: ls -la frontend/${{ steps.outdir.outputs.dir }}
+
       - name: Add SPA fallback for GitHub Pages
-        run: cp frontend/build/index.html frontend/build/404.html
+        run: cp frontend/${{ steps.outdir.outputs.dir }}/index.html frontend/${{ steps.outdir.outputs.dir }}/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./frontend/build
+          publish_dir: ./frontend/${{ steps.outdir.outputs.dir }}
           force_orphan: true
           enable_jekyll: false
