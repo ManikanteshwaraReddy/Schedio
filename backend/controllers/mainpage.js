@@ -603,6 +603,18 @@ const getbookmarks = async (req, res) => {
   res.json(array);
 };
 
+const getalldomains = async (req, res) => {
+  try {
+    const domains = await projects.distinct("Domain");
+    // Filter out empty or null domains if any exist
+    const validDomains = domains.filter(d => d && d.trim() !== "" && d !== "Any");
+    res.json(validDomains);
+  } catch (error) {
+    console.error("Error fetching domains:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   getdata,
   projectlist,
@@ -638,5 +650,6 @@ module.exports = {
   getNoofprojects,
   hrmainsearch,
   getbookmarks,
+  getalldomains,
 };
 

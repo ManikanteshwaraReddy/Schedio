@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import Header from "../layout/hrheader";
@@ -37,6 +37,21 @@ export default function ProjectUploadForm() {
   const [plagarismValue, setPlagarismValue] = useState(0);
   const [plagarismErrorMessage, setPlagarismErrorMessage] = useState("");
   const [display, setDisplay] = useState(0);
+  const [dynamicDomains, setDynamicDomains] = useState([]);
+
+  useEffect(() => {
+    const fetchDomains = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/en/getalldomains`
+        );
+        setDynamicDomains(response.data);
+      } catch (error) {
+        console.error("Error fetching domains:", error);
+      }
+    };
+    fetchDomains();
+  }, []);
 
   const handleInputChange = async (event) => {
     const inputValue = event.target.value;
@@ -219,7 +234,7 @@ export default function ProjectUploadForm() {
   async function saveDetails() {
     console.log(photos.length);
     try {
-      if (fileSize + videoSize + profilePhotoSize > 4) {
+      if (fileSize + videoSize + profilePhotoSize > 150) {
         alert("size exceeded");
       } else if (plagarismValue === 0) {
         alert("Please run Plagarism Check");
@@ -323,34 +338,20 @@ export default function ProjectUploadForm() {
                 </label>
                 <label className="grid gap-2 text-sm font-semibold text-ink-700 dark:text-ink-200">
                   Select project domain
-                  <select
+                  <input
+                    type="text"
                     name="category"
+                    list="dynamic-domains"
                     onChange={(e) => setDomain(e.target.value)}
                     className="rounded-lg border border-ink-200 bg-white px-4 py-2 text-sm text-ink-800 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100"
+                    placeholder="Select or type a domain"
                     required
-                  >
-                    <option value="Web development">Web development</option>
-                    <option value="App development">App development</option>
-                    <option value="Data Science and Analytics">
-                      Data Science and Analytics
-                    </option>
-                    <option value="Game development">Game development</option>
-                    <option value="Cyber Security">Cyber Security</option>
-                    <option value="Artificial Intelligence and Robotic">
-                      Artificial Intelligence and Robotics
-                    </option>
-                    <option value="Embedded systems and IOT(Sensors)">
-                      Embedded systems and IOT(Sensors)
-                    </option>
-                    <option value="E-Commerce and Marketplace development">
-                      E-Commerce and Marketplace development
-                    </option>
-                    <option value="Healthcare">Healthcare</option>
-                    <option value="Software development">
-                      Software development
-                    </option>
-                    <option value="Any">Not listed</option>
-                  </select>
+                  />
+                  <datalist id="dynamic-domains">
+                    {dynamicDomains.map((d, index) => (
+                      <option key={index} value={d} />
+                    ))}
+                  </datalist>
                 </label>
               </div>
             </div>

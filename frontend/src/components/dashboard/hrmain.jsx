@@ -486,7 +486,7 @@ function HRMAIN({ checkSession }) {
             </div>
 
             {isProfileVisible && (
-                <div className='fixed inset-0 z-40 flex justify-end bg-black/20 p-6'>
+                <div className='fixed inset-0 z-40 flex items-start justify-end bg-black/20 p-6'>
                     <div className='card-surface w-full max-w-sm p-6'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center gap-3'>

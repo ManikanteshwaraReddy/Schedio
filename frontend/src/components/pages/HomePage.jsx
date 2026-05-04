@@ -7,6 +7,22 @@ export default function HomePage({
     handleclick,
 }) {
     const [randomprj, setRandomprj] = useState([]);
+    const [dynamicDomains, setDynamicDomains] = useState([]);
+
+    useEffect(() => {
+        const fetchDomains = async () => {
+            try {
+                const response = await axios.get(
+                    `${process.env.REACT_APP_BACKEND_URL}/en/getalldomains`
+                );
+                // Limit to 6 domains max to keep the 3x2 grid layout clean
+                setDynamicDomains(response.data.slice(0, 6));
+            } catch (error) {
+                console.error('Error fetching domains:', error);
+            }
+        };
+        fetchDomains();
+    }, []);
     useEffect(() => {
         const getrecentprj = async () => {
             try {
@@ -24,38 +40,15 @@ export default function HomePage({
         getrecentprj();
     }, []);
 
-    const domains = [
-        {
-            label: 'Healthcare',
-            value: 'Healthcare',
-            image: '/domain-healthcare.svg'
-        },
-        {
-            label: 'Artificial Intelligence',
-            value: 'Artificial Intelligence and Robotics',
-            image: '/domain-artificial-intelligence.svg'
-        },
-        {
-            label: 'Web Development',
-            value: 'Web development',
-            image: '/domain-web-development.svg'
-        },
-        {
-            label: 'Software Development',
-            value: 'Software development',
-            image: '/domain-software-development.svg'
-        },
-        {
-            label: 'E-Commerce',
-            value: 'E-Commerce and Marketplace development',
-            image: '/domain-ecommerce.svg'
-        },
-        {
-            label: 'Cyber Security',
-            value: 'Cyber Security',
-            image: '/domain-cyber-security.svg'
-        }
-    ];
+    const getDomainImage = (domain) => {
+        const lowerDomain = domain.toLowerCase();
+        if (lowerDomain.includes('health')) return '/domain-healthcare.svg';
+        if (lowerDomain.includes('intelligence') || lowerDomain.includes('ai') || lowerDomain.includes('robot')) return '/domain-artificial-intelligence.svg';
+        if (lowerDomain.includes('web')) return '/domain-web-development.svg';
+        if (lowerDomain.includes('commerce') || lowerDomain.includes('market')) return '/domain-ecommerce.svg';
+        if (lowerDomain.includes('security') || lowerDomain.includes('cyber')) return '/domain-cyber-security.svg';
+        return '/domain-software-development.svg';
+    };
 
     return (
         <div className='space-y-10'>
@@ -67,22 +60,22 @@ export default function HomePage({
                     <h2 className='mt-2 font-display text-2xl text-ink-900 dark:text-ink-100'>Explore popular domains</h2>
                 </div>
                 <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-                    {domains.map((domain) => (
+                    {dynamicDomains.map((domainStr) => (
                         <button
-                            key={domain.value}
+                            key={domainStr}
                             type='button'
-                            onClick={() => handleDomainClick(domain.value)}
+                            onClick={() => handleDomainClick(domainStr)}
                             className='group relative h-48 overflow-hidden rounded-2xl border border-ink-200 bg-white text-left shadow-soft-sm dark:border-ink-700 dark:bg-ink-800'
                         >
                             <img
-                                src={domain.image}
-                                alt={domain.label}
+                                src={getDomainImage(domainStr)}
+                                alt={domainStr}
                                 className='h-full w-full object-cover transition duration-500 group-hover:scale-105'
                             />
                             <div className='absolute inset-0 bg-gradient-to-t from-ink-900/70 via-ink-900/20 to-transparent' />
                             <div className='absolute bottom-4 left-4'>
                                 <p className='text-sm font-semibold uppercase tracking-[0.2em] text-ink-200 dark:text-ink-100'>
-                                    {domain.label}
+                                    {domainStr}
                                 </p>
                             </div>
                         </button>
