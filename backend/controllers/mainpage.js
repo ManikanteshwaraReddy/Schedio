@@ -248,7 +248,6 @@ const getSearchProjects = async (req, res) => {
       combinedResults1.push(result);
     }
   });
-
   res.json(combinedResults1);
 };
 

@@ -235,7 +235,7 @@ export default function HomeComponents({ checkSession }) {
     return (
         <div className='min-h-screen bg-ink-50 text-ink-900 dark:bg-ink-900 dark:text-ink-100'>
             <header className='sticky top-0 z-30 border-b border-ink-200 bg-white/90 backdrop-blur dark:border-ink-700 dark:bg-ink-900/90'>
-                <div className='mx-auto flex w-full max-w-7xl items-center gap-4 px-6 py-3'>
+                <div className='mx-auto flex w-full max-w-[1440px] items-center gap-4 px-6 py-3'>
                     <button
                         type='button'
                         className='flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-600 shadow-sm transition hover:border-brand-300 hover:text-brand-600 dark:border-ink-700 dark:bg-ink-800 dark:text-ink-200'
@@ -300,7 +300,7 @@ export default function HomeComponents({ checkSession }) {
                 </div>
             </header>
 
-            <div className='mx-auto flex w-full max-w-7xl gap-6 px-6 py-6'>
+            <div className='mx-auto flex w-full max-w-[1440px] gap-6 px-6 py-6'>
                 {isSiderVisible && (
                     <aside className='w-56 shrink-0 space-y-2'>
                         {[

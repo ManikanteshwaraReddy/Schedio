@@ -8,12 +8,12 @@ export default function Category() {
     const year = new Date().getFullYear()
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        year: "Individual"
+        year: "Student"
     });
     const handle = async (event) => {
         event.preventDefault();
         try {
-            if (formData.year === 'Individual') {
+            if (formData.year === 'Student') {
                 navigate('/signup');
             }
             else if (formData.year === 'Recruiter') {
@@ -116,7 +116,7 @@ export default function Category() {
                                 required
                                 className='w-full rounded-lg border border-ink-200 bg-white px-4 py-2 text-sm text-ink-800 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100'
                             >
-                                <option value='Individual'>Individual</option>
+                                <option value='Student'>Student</option>
                                 <option value='Organization'>Organization</option>
                                 <option value='Recruiter'>Recruiter</option>
                             </select>

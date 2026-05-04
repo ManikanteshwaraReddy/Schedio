@@ -11,7 +11,7 @@ const Instructions = () => {
 
                 <div className="space-y-4">
                     <p className="text-gray-100 text-sm lg:text-base">
-                        If you want to add your Organization to our database, please follow these instructions and send the required data to <b className="text-blue-600">freemovies5247@gmail.com</b>:
+                        If you want to add your Organization to our database, please follow these instructions and send the required data to <b className="text-blue-600">teamschedio@gmail.com</b>:
                     </p>
 
                     <h3 className="text-blue-400 text-base lg:text-lg font-semibold mt-6">Organization Name:</h3>

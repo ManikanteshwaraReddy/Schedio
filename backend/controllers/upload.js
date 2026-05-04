@@ -17,7 +17,7 @@ const {
     plagarismapi,
 } = require('../settings/env.js');
 const { ObjectId } = require('mongodb');
-const {GoogleGenAI} = require('@google/genai');
+const { GoogleGenAI } = require('@google/genai');
 
 
 const mongoURI = url;
@@ -375,40 +375,40 @@ const explainCode = async (req, res) => {
     const ai = new GoogleGenAI({ apiKey: geminiapi });
     const model = 'gemini-2.5-flash';
     const result = await ai.models.generateContent({
-      model,
-      contents: [
-        {
-            role: 'user',
-            parts: [
-                {
-                    text: "const mongoose = require('mongoose');const express = require('express');const path = require('path');const jwt = require('jsonwebtoken');const bcrypt = require('bcryptjs');const app = express();const bodyParser = require('body-parser');const session = require('express-session');const Mailgen = require('mailgen');const nodemailer = require('nodemailer');const { EMAIL, PASSWORD, JWT_SECRET, SESSION_KEY, Student, college, Department, recruiter, skills } = require('../settings/env.js');require('dotenv').config();app.use(express.static('../build'));app.use(bodyParser.json());// college suggestionsconst getsignupCollege = async (req, res) => {    try {        const term1 = req.query.term;        const regex1 = new RegExp(term1, 'i');        const colleges = await college.find({ college_name: regex1 }).select('college_name').limit(10);        const suggestions1 = colleges.map(college => college.college_name);        res.json(suggestions1);    }    catch (err) {        console.error('Error retrieving colleges:', err);        res.status(500).json({ error: 'Error in retriveing colleges' });    }}//SESSION_CHECKERconst checkSessionEndpoint = async (req, res) => {    if (req.session.loggedInemail) { //if exists condition will be true        res.json([req.session.loggedInemail, req.session.typeofuser, req.session.status, req.session.third, req.session.fourth]);        // typeof user 0 is student        //1 is college        //2 is hr        //status is 0 or 1 depending if the user completed all sign up procedure    } else {        // If no session null will be returned        res.json(null)    }}//colege send mailerconst signup_college = async (req, res) => {    const CollegeName = req.body.serverCollegeName;    try {        // Find the document based on the provided college name        const result = await college.findOne({ college_name: CollegeName });        //console.log(result.password)        if (result.password !== undefined) {            // User already has a password            res.json({ message: \"User already registered\", CollegeName: \"null\" });        }        else if (result) {            const username = result.email_address;            //mail has found            const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: '10m' });            let config = {                service: 'gmail',                auth: {                    user: EMAIL,                    pass: PASSWORD,                },            };            let transporter = nodemailer.createTransport(config);            let MailGenerator = new Mailgen({                theme: \"default\",                product:                    { name: \"PROJECT PALACE\",                    link: 'https://mailgen.js/'                },            });            let response = {                body: {                    name: CollegeName,                    intro: \"Please click on the following link to set your password:\",                    action: {                        instructions: \"Click the button below to set your password:\",                        button: {                            color: \"#22BC66\",                            text: \"Set your password\",                            link: `https://schedio-coral.vercel.app/set-password/ne/${token}`                        }                    },                    outro: \"If you did not request to set a password, no further action is required on your part.\",                },            };            let mail = MailGenerator.generate(response);            let message = {                from: EMAIL,                to: username,                subject: \"Your OTP for Verification\",                html: mail,            };            transporter.sendMail(message)            res.json({ message: \"Mail Sent\", mail: username });        } else {            res.status(404).json({ error: 'College not found' });        }    }    catch (error) {        console.error('Error retrieving data from MongoDB:', error);        res.status(500).json({ error: 'Internal server error' });    }}",
-                },
-            ],
+        model,
+        contents: [
+            {
+                role: 'user',
+                parts: [
+                    {
+                        text: "const mongoose = require('mongoose'); const express = require('express'); const path = require('path'); const jwt = require('jsonwebtoken'); const bcrypt = require('bcryptjs'); const app = express(); const bodyParser = require('body-parser'); const session = require('express-session'); const Mailgen = require('mailgen'); const nodemailer = require('nodemailer'); const { EMAIL, PASSWORD, JWT_SECRET, SESSION_KEY, Student, college, Department, recruiter, skills } = require('../settings/env.js'); require('dotenv').config(); app.use(express.static('../build')); app.use(bodyParser.json()); // college suggestionsconst getsignupCollege = async (req, res) => {    try {        const term1 = req.query.term;        const regex1 = new RegExp(term1, 'i');        const colleges = await college.find({ college_name: regex1 }).select('college_name').limit(10);        const suggestions1 = colleges.map(college => college.college_name);        res.json(suggestions1);    }    catch (err) {        console.error('Error retrieving colleges:', err);        res.status(500).json({ error: 'Error in retriveing colleges' });    }}//SESSION_CHECKERconst checkSessionEndpoint = async (req, res) => {    if (req.session.loggedInemail) { //if exists condition will be true        res.json([req.session.loggedInemail, req.session.typeofuser, req.session.status, req.session.third, req.session.fourth]);        // typeof user 0 is student        //1 is college        //2 is hr        //status is 0 or 1 depending if the user completed all sign up procedure    } else {        // If no session null will be returned        res.json(null)    }}//colege send mailerconst signup_college = async (req, res) => {    const CollegeName = req.body.serverCollegeName;    try {        // Find the document based on the provided college name        const result = await college.findOne({ college_name: CollegeName });        //console.log(result.password)        if (result.password !== undefined) {            // User already has a password            res.json({ message: \"User already registered\", CollegeName: \"null\" });        }        else if (result) {            const username = result.email_address;            //mail has found            const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: '10m' });            let config = {                service: 'gmail',                auth: {                    user: EMAIL,                    pass: PASSWORD,                },            };            let transporter = nodemailer.createTransport(config);            let MailGenerator = new Mailgen({                theme: \"default\",                product:                     { name: \"PROJECT PALACE\",                    link: 'https://mailgen.js/'                },            });            let response = {                 body: {                    name: CollegeName,                    intro: \"Please click on the following link to set your password:\",                    action: {                        instructions: \"Click the button below to set your password:\",                        button: {                            color: \"#22BC66\",                            text: \"Set your password\",                            link: `https://schedio-coral.vercel.app/set-password/ne/${token}`                        }                    },                    outro: \"If you did not request to set a password, no further action is required on your part.\",                },            };            let mail = MailGenerator.generate(response);            let message = {                from: EMAIL,                to: username,                subject: \"Your OTP for Verification\",                html: mail,            };            transporter.sendMail(message)            res.json({ message: \"Mail Sent\", mail: username });        } else {            res.status(404).json({ error: 'College not found' });        }    }    catch (error) {        console.error('Error retrieving data from MongoDB:', error);        res.status(500).json({ error: 'Internal server error' });    }}",
+                    },
+                ],
+            },
+            {
+                role: 'model',
+                parts: [
+                    {
+                        text: "This is a Node.js Express application that uses MongoDB as a database to store data. It includes email verification,user sessions, and various routes for user registration, authentication, and data retrieval. Here's a breakdown of the code:\n\n1. **Importing Modules**:\n   - The necessary modules are imported, including `mongoose` for MongoDB connectivity, `express` for the web framework, `path` for file path manipulation, `jwt` for JSON Web Tokens, `bcrypt` for password hashing, `bodyParser` for parsing request bodies, and `express-session` for managing user sessions.\n\n2. **Express App Setup**:\n   - The Express app is configured to handle JSON requests and serve static files from the `../build` directory.\n\n3. **Database Connection**:\n   - Mongoose is used to connect to the MongoDB database. The connection is established using the `mongoose.connect()` method, ensuring that a connection is established before proceeding.\n\n4. **College Name Suggestions**:\n   - A route `getsignupCollege` is defined to handle requests for college name suggestions. It takes a `term` parameter in the query string and searches for colleges with names similar to the `term` using a regular expression. The results are limited to 10 suggestions and returned as an array of college names.\n\n5. **Session Checking**:\n   - The `checkSessionEndpoint` route checks if a user has an active session. It checks the `req.session.loggedInemail` property and returns an array containing various session details, including the user's email, user type, status, and other optional values. If no session exists, it returns `null`.\n\n6. **College Sign Up Mailer**:\n   - The `signup_college` route is used to send an email for college sign up. It takes the college name as a request body parameter. If a college with that name is found in the database, an email is sent to the college's email address containing a link for setting a password. A JSON response is sent back, indicating the status of the operation.\n\nThis script combines MongoDB, Express, and various Node.js modules to provide a backend for user registration, session management, and email verification, specifically for colleges. The routes and functions are designed to handle college-related operations like name suggestions, email verification, and password setup. The integration of JWT, bcrypt, and email functionality ensures secure and efficient user authentication and account setup processes.",
+                    },
+                ],
+            },
+            { role: 'user', parts: [{ text: code }] },
+        ],
+        generationConfig: {
+            temperature: 1,
+            topK: 1,
+            topP: 1,
+            maxOutputTokens: 2048,
+            response_mime_type: 'text/plain'
         },
-        {
-            role: 'model',
-            parts: [
-                {
-                    text: "This is a Node.js Express application that uses MongoDB as a database to store data. It includes email verification, user sessions, and various routes for user registration, authentication, and data retrieval. Here's a breakdown of the code:\n\n1. **Importing Modules**:\n   - The necessary modules are imported, including `mongoose` for MongoDB connectivity, `express` for the web framework, `path` for file path manipulation, `jwt` for JSON Web Tokens, `bcrypt` for password hashing, `bodyParser` for parsing request bodies, and `express-session` for managing user sessions.\n\n2. **Express App Setup**:\n   - The Express app is configured to handle JSON requests and serve static files from the `../build` directory.\n\n3. **Database Connection**:\n   - Mongoose is used to connect to the MongoDB database. The connection is established using the `mongoose.connect()` method, ensuring that a connection is established before proceeding.\n\n4. **College Name Suggestions**:\n   - A route `getsignupCollege` is defined to handle requests for college name suggestions. It takes a `term` parameter in the query string and searches for colleges with names similar to the `term` using a regular expression. The results are limited to 10 suggestions and returned as an array of college names.\n\n5. **Session Checking**:\n   - The `checkSessionEndpoint` route checks if a user has an active session. It checks the `req.session.loggedInemail` property and returns an array containing various session details, including the user's email, user type, status, and other optional values. If no session exists, it returns `null`.\n\n6. **College Sign Up Mailer**:\n   - The `signup_college` route is used to send an email for college sign up. It takes the college name as a request body parameter. If a college with that name is found in the database, an email is sent to the college's email address containing a link for setting a password. A JSON response is sent back, indicating the status of the operation.\n\nThis script combines MongoDB, Express, and various Node.js modules to provide a backend for user registration, session management, and email verification, specifically for colleges. The routes and functions are designed to handle college-related operations like name suggestions, email verification, and password setup. The integration of JWT, bcrypt, and email functionality ensures secure and efficient user authentication and account setup processes.",
-                },
-            ],
-        },
-        { role: 'user', parts: [{ text: code }] },
-      ],
-      generationConfig: {
-        temperature: 1,
-        topK: 1,
-        topP: 1,
-        maxOutputTokens: 2048,
-        response_mime_type: 'text/plain'
-      },
-      safetySettings: [
-        { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_ONLY_HIGH' },
-        { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_ONLY_HIGH' },
-        { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_ONLY_HIGH' },
-        { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_ONLY_HIGH' },
-      ],
-    }); 
+        safetySettings: [
+            { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_ONLY_HIGH' },
+            { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_ONLY_HIGH' },
+            { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_ONLY_HIGH' },
+            { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_ONLY_HIGH' },
+        ],
+    });
 
     res.status(200).json({ ans: result.text });
 };

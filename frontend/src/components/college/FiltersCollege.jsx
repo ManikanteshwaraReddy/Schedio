@@ -30,22 +30,17 @@ export default function FiltersCollege({ sendDataToParent }) {
     };
 
     return (
-        <div className="card-surface flex flex-wrap items-center justify-between gap-4 px-4 py-3">
-            <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink-500 dark:text-ink-300">
-                    Sort projects
-                </p>
-                <select
-                    name="sort_by"
-                    value={formData.sort_by}
-                    onChange={handleChange}
-                    className="mt-2 h-10 rounded-full border border-ink-200 bg-white px-4 text-sm text-ink-700 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200"
-                >
-                    <option value="Name">Name</option>
-                    <option value="Likes">Likes</option>
-                    <option value="Upload Date">Upload Date</option>
-                </select>
-            </div>
+        <div className="flex flex-wrap items-center gap-4">
+            <select
+                name="sort_by"
+                value={formData.sort_by}
+                onChange={handleChange}
+                className="h-10 rounded-full border border-ink-200 bg-white px-4 text-sm text-ink-700 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200"
+            >
+                <option value="Name">Name</option>
+                <option value="Likes">Likes</option>
+                <option value="Upload Date">Upload Date</option>
+            </select>
             <button
                 type="button"
                 name="order"

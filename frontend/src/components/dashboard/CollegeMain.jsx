@@ -42,7 +42,7 @@ const CollegeMain = ({ checkSession }) => {
     const [collegedetail, setCollegedetail] = useState([]);
     const [isProfileVisible, setIsProfileVisible] = useState(false);
     const [stack, setstack] = useState([[0, 'Upload Date', false, 2024]]);
-    const [selectedYear, setSelectedYear] = useState('2024');
+    const [selectedYear, setSelectedYear] = useState(String(new Date().getFullYear()));
     const toggleDashboard1 = () => {
         setIsProfileVisible((prevState) => !prevState);
     };
@@ -183,7 +183,7 @@ const CollegeMain = ({ checkSession }) => {
     };
     useEffect(() => {
         fetchData();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        
     }, [projid]);
     console.log(display, stack);
     return (
@@ -197,20 +197,16 @@ const CollegeMain = ({ checkSession }) => {
                 />
             </header>
 
-            <div className='mx-auto flex w-full max-w-7xl gap-6 px-6 py-6'>
+            <div className='mx-auto flex w-full max-w-[1440px] gap-6 px-6 py-6'>
                 <main className={`flex-1 ${isProfileVisible ? 'pointer-events-none blur-sm' : ''}`}>
                     {display === 0 && (
-                        <>
-                            <FiltersCollege sendDataToParent={FilterData} />
-                            <div className='mt-6'>
-                                <Graph
-                                    receivedData={receivedData}
-                                    selectedYear={selectedYear}
-                                    handleYearChange={handleYearChange}
-                                    handleclick={handleclick}
-                                />
-                            </div>
-                        </>
+                        <Graph
+                            receivedData={receivedData}
+                            selectedYear={selectedYear}
+                            handleYearChange={handleYearChange}
+                            handleclick={handleclick}
+                            filterComponent={<FiltersCollege sendDataToParent={FilterData} />}
+                        />
                     )}
                     {display === 1 && (
                         <DomainClick
@@ -237,7 +233,7 @@ const CollegeMain = ({ checkSession }) => {
             </div>
 
             {isProfileVisible && (
-                <div className='fixed inset-0 z-40 flex justify-end bg-black/20 p-6'>
+                <div className='fixed inset-0 z-40 flex items-start justify-end bg-black/20 p-6'>
                     <div className='card-surface w-full max-w-sm p-6'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center gap-3'>

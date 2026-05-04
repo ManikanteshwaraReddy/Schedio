@@ -105,25 +105,13 @@ const FrontPage = () => {
                             <p className='mt-4 text-lg text-ink-600 dark:text-ink-300'>
                                 Schedio helps you launch, showcase, and collaborate on real-world work with a clean, modern workspace.
                             </p>
-                            <div className='mt-8 flex flex-wrap gap-3'>
-                                <button
-                                    className='btn-primary'
-                                    onClick={() => navigate('/wru')}
-                                >
-                                    Create your space
-                                </button>
-                                <button
-                                    className='btn-ghost'
-                                    onClick={() => navigate('/SignIn')}
-                                >
-                                    Explore dashboards
-                                </button>
-                            </div>
                         </div>
+
+                        
 
                         <div className='mt-12 grid gap-4 sm:grid-cols-3'>
                             {[
-                                { label: 'Individuals', value: data[0] },
+                                { label: 'Students', value: data[0] },
                                 { label: 'Organizations', value: data[1] },
                                 { label: 'Recruiters', value: data[2] }
                             ].map((stat) => (
@@ -136,6 +124,33 @@ const FrontPage = () => {
                                     </p>
                                 </div>
                             ))}
+                        </div>
+                    </div>
+                </section>
+
+                <section className='border-y border-ink-200 bg-white py-16 dark:border-ink-700 dark:bg-ink-800'>
+                    <div className='container-page flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between'>
+                        <div>
+                            <p className='text-sm font-semibold uppercase tracking-[0.3em] text-brand-600 dark:text-brand-300'>
+                                Ready to start
+                            </p>
+                            <h2 className='mt-4 font-display text-3xl text-ink-900 dark:text-ink-100'>
+                                Build your next project with Schedio today.
+                            </h2>
+                        </div>
+                        <div className='flex flex-wrap gap-3'>
+                            <button
+                                className='btn-primary'
+                                onClick={() => navigate('/wru')}
+                            >
+                                Join Now
+                            </button>
+                            <button
+                                className='btn-ghost'
+                                onClick={() => navigate('/SignIn')}
+                            >
+                                Log In
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -209,64 +224,15 @@ const FrontPage = () => {
                     </div>
                 </section>
 
-                <section className='bg-ink-900 py-16 text-white dark:bg-ink-950'>
-                    <div className='container-page flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between'>
-                        <div>
-                            <p className='text-sm font-semibold uppercase tracking-[0.3em] text-brand-200'>
-                                Ready to start
-                            </p>
-                            <h2 className='mt-4 font-display text-3xl text-white'>
-                                Build your next project with Schedio today.
-                            </h2>
-                        </div>
-                        <div className='flex flex-wrap gap-3'>
-                            <button
-                                className='btn-primary'
-                                onClick={() => navigate('/wru')}
-                            >
-                                Start creating
-                            </button>
-                            <button
-                                className='inline-flex items-center justify-center rounded-full border border-brand-300 bg-transparent px-5 py-2 text-sm font-semibold text-brand-100 transition hover:border-brand-200 hover:text-white'
-                                onClick={() => navigate('/SignIn')}
-                            >
-                                Sign in
-                            </button>
-                        </div>
-                    </div>
-                </section>
+
             </main>
 
             <footer className='border-t border-ink-200 bg-white py-10 dark:border-ink-700 dark:bg-ink-900'>
-                <div className='container-page grid gap-8 md:grid-cols-3'>
-                    <div>
-                        <p className='text-sm font-semibold uppercase tracking-[0.3em] text-ink-500 dark:text-ink-300'>
-                            Social
-                        </p>
-                        <div className='mt-4 flex flex-col gap-2 text-ink-700 dark:text-ink-200'>
-                            <a href='https://twitter.com/neilgogte' target='_blank' rel='noreferrer'>
-                                Twitter
-                            </a>
-                            <a href='https://www.facebook.com/KMiT.in/' target='_blank' rel='noreferrer'>
-                                Facebook
-                            </a>
-                            <a href='https://www.instagram.com/kmitofficial/?hl=en' target='_blank' rel='noreferrer'>
-                                Instagram
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <p className='text-sm font-semibold uppercase tracking-[0.3em] text-ink-500 dark:text-ink-300'>
-                            Contact
-                        </p>
-                        <p className='mt-4 text-ink-700 dark:text-ink-200'>[EMAIL_ADDRESS]</p>
-                    </div>
-                    <div>
-                        <p className='text-sm font-semibold uppercase tracking-[0.3em] text-ink-500 dark:text-ink-300'>
-                            Community
-                        </p>
-                        <p className='mt-4 text-ink-700 dark:text-ink-200'>Trusted by teams building meaningful work.</p>
-                    </div>
+                <div className='container-page text-center'>
+                    <p className='text-sm font-semibold uppercase tracking-[0.3em] text-ink-500 dark:text-ink-300'>
+                        Contact
+                    </p>
+                    <p className='mt-4 text-ink-700 dark:text-ink-200'>teamschedio@gmail.com</p>
                 </div>
             </footer>
         </div>

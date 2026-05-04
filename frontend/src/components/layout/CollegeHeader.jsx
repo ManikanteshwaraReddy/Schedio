@@ -37,7 +37,7 @@ export default function CollegeHeader({
   };
   return (
     <div className="border-b border-ink-200 bg-white/90 backdrop-blur dark:border-ink-700 dark:bg-ink-900/90">
-      <div className="mx-auto flex w-full max-w-7xl items-center gap-4 px-6 py-3">
+      <div className="mx-auto flex w-full max-w-[1440px] items-center gap-4 px-6 py-3">
         <div className="flex items-center gap-3">
           <img
             src="../Plogo.png"

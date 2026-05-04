@@ -20,7 +20,8 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "./build")));
 }
 
-app.use(bodyParser.json({ limit: "50mb" })); //limit limits the data which can be uploaded to server.js from frontend
+app.use(bodyParser.json({ limit: "50mb" })); 
+
 const store = new MongoDBStore({
   uri: url,
   collection: "mySessions",
@@ -35,7 +36,7 @@ app.use(
     saveUninitialized: false,
     store: store,
     cookie: {
-      maxAge: 6 * 60 * 60 * 1000, //6 hours
+      maxAge: 6 * 60 * 60 * 1000, 
       sameSite: process.env.NODE_ENV === "production" ? "strict" : "lax",
       secure: process.env.NODE_ENV === "production",
       httpOnly: true,
