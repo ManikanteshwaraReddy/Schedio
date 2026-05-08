@@ -339,10 +339,11 @@ function HRMAIN({ checkSession }) {
                                 <div className='space-y-4'>
                                     <button
                                         type='button'
-                                        className='text-sm font-semibold text-brand-600 dark:text-brand-200'
+                                        className='btn-ghost gap-2 !px-4 !py-2.5 w-fit'
                                         onClick={() => setDisplay(0)}
                                     >
-                                        {'<- Go Back'}
+                                        <FontAwesomeIcon icon={faArrowLeft} />
+                                        <span>Go Back</span>
                                     </button>
 
                                     <div className='grid gap-4 md:grid-cols-2'>
@@ -366,10 +367,11 @@ function HRMAIN({ checkSession }) {
                                 <div className='space-y-4'>
                                     <button
                                         type='button'
-                                        className='text-sm font-semibold text-brand-600 dark:text-brand-200'
+                                        className='btn-ghost gap-2 !px-4 !py-2.5 w-fit'
                                         onClick={() => setDisplay(0)}
                                     >
-                                        {'<- Go Back'}
+                                        <FontAwesomeIcon icon={faArrowLeft} />
+                                        <span>Go Back</span>
                                     </button>
                                     <div className='grid gap-4 md:grid-cols-2'>
                                         {students.map((student, index) => (
@@ -431,10 +433,11 @@ function HRMAIN({ checkSession }) {
                                     <Filters sendDataToParent={FilterData} />
                                     <button
                                         type='button'
-                                        className='text-sm font-semibold text-brand-600 dark:text-brand-200'
+                                        className='btn-ghost gap-2 !px-4 !py-2.5 w-fit mb-4'
                                         onClick={() => setDisplay(0)}
                                     >
-                                        {'<- Go Back'}
+                                        <FontAwesomeIcon icon={faArrowLeft} />
+                                        <span>Go Back</span>
                                     </button>
 
                                     <div className='grid gap-4 md:grid-cols-2'>
