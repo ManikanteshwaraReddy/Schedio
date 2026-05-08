@@ -1,17 +1,15 @@
-import React from 'react';
-import { useState } from 'react';
-// // import './collegelogin-page.css';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+
 export default function StudentLogin({ setUserData }) {
     const year = new Date().getFullYear();
-
-    const [term, setTerm] = useState('');
+    const [term, setTerm] = useState('Employed');
     const [error, seterror] = useState();
     const navigate = useNavigate();
+
     const submit = async (event) => {
         event.preventDefault();
         try {
@@ -20,115 +18,108 @@ export default function StudentLogin({ setUserData }) {
                 `${process.env.REACT_APP_BACKEND_URL}/en/departments`,
                 { department: departmentvalue }
             );
-            console.log(response);
             if (response.data.message === 'user saved') {
                 setUserData([response.data.email, 0, 0, departmentvalue]);
                 navigate('/college-details');
             } else {
-                seterror('Invalid Department');
+                seterror('Invalid status');
             }
         } catch (error) {
             console.error('Error navigating:', error);
         }
     };
 
-    const handleSuggestionClick = (suggestion) => {
-        setTerm(suggestion);
-    };
-
-    const handleLogoClick = () => {
-        navigate('/');
-    };
-
-    const handleTitleClick = () => {
-        navigate('/');
-    };
-
     return (
-        <div className='abc8'>
-            <div className='content18' id='header8'>
-                <div className='header-logo8'>
-                    <div className='logo8'>
-                        {/* <FontAwesomeIcon icon={faProductHunt} style={{color: "#0db1f8"}} /> */}
+        <div className="min-h-screen bg-ink-50 text-ink-900 dark:bg-ink-900 dark:text-ink-100">
+            <header className="border-b border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900">
+                <div className="container-page flex h-16 items-center justify-between gap-3">
+                    <div className='flex items-center gap-3'>
                         <img
                             src='../Plogo.png'
                             alt='Schedio logo'
-                            style={{
-                                width: '35px',
-                                height: 'auto',
-                                paddingTop: '0px',
-                            }}
-                            onClick={handleLogoClick}
+                            className='h-9 w-9 cursor-pointer'
+                            onClick={() => navigate('/')}
                         />
+                        <button
+                            type='button'
+                            className='font-display text-lg font-semibold text-ink-800 dark:text-ink-100'
+                            onClick={() => navigate('/')}
+                        >
+                            Schedio
+                        </button>
                     </div>
-                    <div className='title8' onClick={handleTitleClick}>
-                        <p>Schedio</p>
+                </div>
+            </header>
+
+            <main className='container-page grid gap-10 py-12 lg:grid-cols-[1.05fr_1fr]'>
+                <section className='card-surface relative overflow-hidden p-8'>
+                    <div className='absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-white dark:from-ink-800 dark:via-ink-900 dark:to-ink-800' />
+                    <div className='relative'>
+                        <p className='text-xs font-semibold uppercase tracking-[0.3em] text-brand-600 dark:text-brand-200'>
+                            From concept to completion
+                        </p>
+                        <h1 className='mt-4 font-display text-3xl text-ink-900 dark:text-ink-100'>
+                            Choose your path and build with confidence.
+                        </h1>
+                        <div className='mt-6 grid gap-3 text-sm text-ink-700 dark:text-ink-200'>
+                            {[
+                                'Code empowers evolution',
+                                'Where Imagination meets Achievement',
+                                'From Cool Concepts to Epic Realities',
+                                'Innovate through scripting'
+                            ].map((item) => (
+                                <div key={item} className='flex items-center gap-3'>
+                                    <span className='flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-brand-600 dark:bg-brand-900/30 dark:text-brand-400'>
+                                        <FontAwesomeIcon icon={faCircleCheck} />
+                                    </span>
+                                    <span>{item}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </div>
+                </section>
 
-            <div className='content18' id='sider8'>
-                <div className='sider-slogan8'>
-                    <p>From Concept to Completion</p>
-                </div>
-                <div className='sider-contents8'>
-                    <p>
-                        <FontAwesomeIcon icon={faCircleCheck} size='lg' />
-                        Code empowers evolution
-                    </p>
-                    <p>
-                        <FontAwesomeIcon icon={faCircleCheck} size='lg' />
-                        Where Imagination meets Achievement
-                    </p>
-                    <p>
-                        <FontAwesomeIcon icon={faCircleCheck} size='lg' />
-                        From Cool Concepts to Epic Realities
-                    </p>
-                    <p>
-                        <FontAwesomeIcon icon={faCircleCheck} size='lg' />
-                        Innovate through scripting
-                    </p>
-                </div>
-            </div>
-            <div className='content18' id='bodyy8'>
-                <div id='body-content8'>
-                    <p className='create8'>Choose your Employement status</p>
+                <section className='card-surface p-8'>
+                    <div className='flex flex-col gap-2'>
+                        <p className='text-xs font-semibold uppercase tracking-[0.3em] text-ink-500 dark:text-ink-300'>
+                            Profile Setup
+                        </p>
+                        <h2 className='font-display text-2xl text-ink-900 dark:text-ink-100'>Choose your Employment status</h2>
+                    </div>
 
-                    <form onSubmit={submit}>
-                        <div className='z'>
+                    {error && (
+                        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-600 dark:border-red-900/50 dark:bg-red-900/20 dark:text-red-400">
+                            {error}
+                        </div>
+                    )}
+
+                    <form onSubmit={submit} className='mt-6 grid gap-4'>
+                        <label className='grid gap-2 text-sm font-semibold text-ink-700 dark:text-ink-200'>
+                            Status
                             <select
-                                id='options'
                                 name='options'
-                                onChange={(e) =>
-                                    handleSuggestionClick(e.target.value)
-                                }
+                                value={term}
+                                onChange={(e) => setTerm(e.target.value)}
+                                className='w-full rounded-lg border border-ink-200 bg-white px-4 py-2 text-sm text-ink-800 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100'
+                                required
                             >
                                 <option value='Employed'>Employed</option>
                                 <option value='Unemployed'>Unemployed</option>
                             </select>
-                            <br />
-                        </div>
-                        <button
-                            type='submit'
-                            value='submit'
-                            className='submit8'
-                        >
+                        </label>
+                        <button type='submit' className='btn-primary w-full justify-center'>
                             Next
                         </button>
                     </form>
-                </div>
-                <div className='err15'>{error && <p>{error}</p>}</div>
-                <div className='terms8'>
-                    <hr />
-                    <p>
-                        By signing-up in you are accepting
-                        <br /> <Link to='/t&c'>Terms and conditions</Link>
-                    </p>
-                </div>
-                <div className='copyrights'>
-                    <p>Copyright © {year}</p>
-                </div>
-            </div>
+                    <div className='mt-6 border-t border-ink-200 pt-4 text-xs text-ink-500 dark:border-ink-700 dark:text-ink-400'>
+                        By signing up you are accepting{' '}
+                        <Link to='/t&c' className='font-semibold text-ink-700 dark:text-ink-200'>
+                            Terms and conditions
+                        </Link>.
+                    </div>
+                    <div className='mt-4 text-xs text-ink-400 dark:text-ink-500'>Copyright © {year}</div>
+                </section>
+            </main>
         </div>
     );
 }

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// // import './new-user.css';
-import Header from '../layout/Header';
-import Sider from '../layout/Sider';
 import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 export default function NewPassword() {
     const year = new Date().getFullYear();
@@ -62,65 +61,117 @@ export default function NewPassword() {
     };
 
     return (
-        <div className='abc20'>
-            <Header />
-            <Sider />
-
-            <div id='bodyy20' className='content120'>
-                <div id='body-content20'>
-                    <p className='create20'>Create your account</p>
-
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type='password'
-                            name='password'
-                            placeholder='Password'
-                            pattern='(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}'
-                            value={formData.password}
-                            onChange={handleInputChange}
-                            minLength={8}
-                            required
-                            autoComplete='new-password'
-                            title='should atleast conatin 1 capital 1 small 1 special char 1 number total of 8 char minimum'
+        <div className="min-h-screen bg-ink-50 text-ink-900 dark:bg-ink-900 dark:text-ink-100">
+            <header className="border-b border-ink-200 bg-white dark:border-ink-700 dark:bg-ink-900">
+                <div className="container-page flex h-16 items-center justify-between gap-3">
+                    <div className='flex items-center gap-3'>
+                        <img
+                            src='../../Plogo.png'
+                            alt='Schedio logo'
+                            className='h-9 w-9 cursor-pointer'
+                            onClick={() => navigate('/')}
                         />
-                        <br />
-                        <input
-                            type='password'
-                            name='cpassword'
-                            placeholder='Confirm Password'
-                            pattern='(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}'
-                            value={formData.cpassword}
-                            onChange={handleInputChange}
-                            minLength={8}
-                            required
-                            autoComplete='new-password'
-                            title='should atleast conatin 1 capital 1 small 1 special char 1 number total of 8 char minimum'
-                        />
-                        <br />
-                        <button type='submit'>
-                            Continue{' '}
-                            <i
-                                className='fa-solid fa-arrow-right'
-                                style={{ color: '#417ce1' }}
-                            ></i>
+                        <button
+                            type='button'
+                            className='font-display text-lg font-semibold text-ink-800 dark:text-ink-100'
+                            onClick={() => navigate('/')}
+                        >
+                            Schedio
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main className='container-page grid gap-10 py-12 lg:grid-cols-[1.05fr_1fr]'>
+                <section className='card-surface relative overflow-hidden p-8'>
+                    <div className='absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-white dark:from-ink-800 dark:via-ink-900 dark:to-ink-800' />
+                    <div className='relative'>
+                        <p className='text-xs font-semibold uppercase tracking-[0.3em] text-brand-600 dark:text-brand-200'>
+                            Reset Password
+                        </p>
+                        <h1 className='mt-4 font-display text-3xl text-ink-900 dark:text-ink-100'>
+                            Secure your account.
+                        </h1>
+                        <p className='mt-4 text-lg text-ink-600 dark:text-ink-300'>
+                            Create a strong new password to regain access to your account and continue your journey on Schedio.
+                        </p>
+                        <div className='mt-6 grid gap-3 text-sm text-ink-700 dark:text-ink-200'>
+                            {[
+                                'Must be at least 8 characters long',
+                                'Include at least one uppercase letter',
+                                'Include at least one lowercase letter',
+                                'Include at least one number and special character'
+                            ].map((item) => (
+                                <div key={item} className='flex items-center gap-3'>
+                                    <span className='flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-brand-600 dark:bg-brand-900/30 dark:text-brand-400'>
+                                        <FontAwesomeIcon icon={faCircleCheck} />
+                                    </span>
+                                    <span>{item}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                <section className='card-surface p-8'>
+                    <div className='flex flex-col gap-2'>
+                        <p className='text-xs font-semibold uppercase tracking-[0.3em] text-ink-500 dark:text-ink-300'>
+                            Recovery Step
+                        </p>
+                        <h2 className='font-display text-2xl text-ink-900 dark:text-ink-100'>Create new password</h2>
+                    </div>
+
+                    {(errorMessage || error) && (
+                        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-600 dark:border-red-900/50 dark:bg-red-900/20 dark:text-red-400">
+                            {errorMessage || error}
+                        </div>
+                    )}
+
+                    <form onSubmit={handleSubmit} className='mt-6 grid gap-4'>
+                        <label className='grid gap-2 text-sm font-semibold text-ink-700 dark:text-ink-200'>
+                            New Password
+                            <input
+                                type='password'
+                                name='password'
+                                placeholder='Create a strong password'
+                                pattern='(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}'
+                                value={formData.password}
+                                onChange={handleInputChange}
+                                minLength={8}
+                                required
+                                autoComplete='new-password'
+                                title='Should contain at least 1 capital, 1 small, 1 special char, 1 number, and a total of 8 chars minimum'
+                                className='w-full rounded-lg border border-ink-200 bg-white px-4 py-2 text-sm text-ink-800 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100'
+                            />
+                        </label>
+                        <label className='grid gap-2 text-sm font-semibold text-ink-700 dark:text-ink-200'>
+                            Confirm Password
+                            <input
+                                type='password'
+                                name='cpassword'
+                                placeholder='Confirm your password'
+                                pattern='(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}'
+                                value={formData.cpassword}
+                                onChange={handleInputChange}
+                                minLength={8}
+                                required
+                                autoComplete='new-password'
+                                className='w-full rounded-lg border border-ink-200 bg-white px-4 py-2 text-sm text-ink-800 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100'
+                            />
+                        </label>
+                        <button type='submit' className='btn-primary w-full justify-center'>
+                            Continue
                         </button>
                     </form>
-                </div>
-                <div className='err20'>
-                    {errorMessage && <p>{errorMessage}</p>}
-                    {error && <p>{error}</p>}
-                </div>
-                <div className='terms20'>
-                    <hr />
-                    <p>
-                        By creating you are accepting
-                        <br /> <Link to='/t&c'>Terms and conditions</Link>
-                    </p>
-                </div>
-                <div className='copyrights'>
-                    <p>Copyright © {year}</p>
-                </div>
-            </div>
+                    <div className='mt-6 border-t border-ink-200 pt-4 text-xs text-ink-500 dark:border-ink-700 dark:text-ink-400'>
+                        By resetting your password, you are accepting our{' '}
+                        <Link to='/t&c' className='font-semibold text-ink-700 dark:text-ink-200'>
+                            Terms and conditions
+                        </Link>.
+                    </div>
+                    <div className='mt-4 text-xs text-ink-400 dark:text-ink-500'>Copyright © {year}</div>
+                </section>
+            </main>
         </div>
     );
 }

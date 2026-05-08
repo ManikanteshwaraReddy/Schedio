@@ -68,28 +68,23 @@ export default function ProjectDisplay({
     const stacks = [
         {
             label: 'Python',
-            image:
-                'https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg'
+            image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg'
         },
         {
             label: 'Java',
-            image:
-                'https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/181_Java_logo_logos-512.png'
+            image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg'
         },
         {
             label: 'C++',
-            image:
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1200px-ISO_C%2B%2B_Logo.svg.png'
+            image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg'
         },
         {
             label: 'JavaScript',
-            image:
-                'https://www.freepnglogos.com/uploads/javascript-png/javascript-logo-transparent-logo-javascript-images-3.png'
+            image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg'
         },
         {
-            label: 'MERN',
-            image:
-                'https://upload.wikimedia.org/wikipedia/commons/9/94/MERN-logo.png'
+            label: 'React',
+            image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg'
         }
     ];
 
@@ -107,7 +102,7 @@ export default function ProjectDisplay({
                         <button
                             key={stack.label}
                             type='button'
-                            onClick={() => handleskillprj('html')}
+                            onClick={() => handleskillprj(stack.label)}
                             className='card-surface flex flex-col items-center gap-3 p-4 text-center transition hover:border-brand-300'
                         >
                             <img
