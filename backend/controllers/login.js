@@ -92,8 +92,8 @@ const signup_college = async (req, res) => {
             let MailGenerator = new Mailgen({
                 theme: 'default',
                 product: {
-                    name: 'PROJECT PALACE',
-                    link: 'https://mailgen.js/',
+                    name: 'Schedio',
+                    link: FRONTEND_URL,
                 },
             });
             let response = {
@@ -169,8 +169,8 @@ const signup = async (req, res) => {
             let MailGenerator = new Mailgen({
                 theme: 'default',
                 product: {
-                    name: 'PROJECT PALACE', //change based on website name
-                    link: 'https://mailgen.js/', //add website link after hosting
+                    name: 'Schedio',
+                    link: FRONTEND_URL,
                 },
             });
             let response = {
@@ -240,8 +240,8 @@ const hrsignup = async (req, res) => {
             let MailGenerator = new Mailgen({
                 theme: 'default',
                 product: {
-                    name: 'PROJECT PALACE',
-                    link: 'https://mailgen.js/',
+                    name: 'Schedio',
+                    link: FRONTEND_URL,
                 },
             });
             let response = {
@@ -446,8 +446,8 @@ const fpassword = async (req, res) => {
             let MailGenerator = new Mailgen({
                 theme: 'default',
                 product: {
-                    name: 'PROJECT PALACE',
-                    link: 'https://mailgen.js/',
+                    name: 'Schedio',
+                    link: FRONTEND_URL,
                 },
             });
             let response = {
@@ -458,7 +458,7 @@ const fpassword = async (req, res) => {
                         instructions:
                             'Click the button below to set your new password:',
                         button: {
-                            color: '#22BC66',
+                            color: '#040a1cff',
                             text: 'Set your new password',
                             link: `${FRONTEND_URL}/set-password/np/${token}`,
                         },
